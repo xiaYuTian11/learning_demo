@@ -25,6 +25,8 @@
         <junit.version>5.5.2</junit.version>
         <hutool.version>5.0.6</hutool.version>
         <guava.version>28.1-jre</guava.version>
+        <mysql.version>8.0.18</mysql.version>
+        <postgresql.version>42.2.9</postgresql.version>
     </properties>
 
 
@@ -44,6 +46,16 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
     </dependencies>
 
