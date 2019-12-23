@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>concurrency_in_practice</module>
+        <module>seckill</module>
     </modules>
 
     <!--添加阿里云仓库-->
@@ -27,6 +28,9 @@
         <guava.version>28.1-jre</guava.version>
         <mysql.version>8.0.18</mysql.version>
         <postgresql.version>42.2.9</postgresql.version>
+        <c3p0.version>0.9.1.2</c3p0.version>
+        <druid.version>1.1.21</druid.version>
+        <lombok.version>1.18.10</lombok.version>
     </properties>
 
 
@@ -57,6 +61,24 @@
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
         </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+
     </dependencies>
 
 </project>
