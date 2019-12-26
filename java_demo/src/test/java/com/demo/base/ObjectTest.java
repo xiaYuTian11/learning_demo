@@ -2,6 +2,8 @@ package com.demo.base;
 
 import cn.hutool.core.thread.ThreadUtil;
 import com.google.common.collect.ImmutableList;
+import com.google.errorprone.annotations.Var;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -9,6 +11,7 @@ import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.regex.Pattern;
 
 /**
  * @author TMW
@@ -81,5 +84,36 @@ public class ObjectTest {
 
         list.forEach(System.out::println);
 
+    }
+
+    @Test
+    public void test06(){
+
+        System.out.println((1 << 29) - 1);
+
+    }
+
+    @Test
+    public void test07(){
+        boolean str = Pattern.matches("^.*$", "Str");
+        System.out.println(str);
+        boolean str1 = Pattern.matches("^\\wStr$", "Str");
+        System.out.println(str1);
+        boolean str2 = Pattern.matches("\\dStr", "String");
+        System.out.println(str2);
+        boolean grey = Pattern.matches("gr(e|a|A|E)y", "grAy");
+        System.out.println(grey);
+        boolean str3 = Pattern.matches("[0-9a-fA-F]", "A");
+        System.out.println(str3);
+        boolean abcdefABCDEF = Pattern.matches("[^1-6]*", "7abcdefABCDEF");
+        System.out.println(abcdefABCDEF);
+        boolean matches = Pattern.matches("03[-./=]19[-./=]76", "03=19=76");
+        System.out.println(matches);
+        boolean matches1 = Pattern.matches("03.19.76", "03.19.76");
+        System.out.println(matches1);
+        boolean matches2 = Pattern.matches("03[.-/=]19[.-/=]76", "03.19.76");
+        System.out.println(matches2);
+        boolean grey1 = Pattern.matches("gr[eaAE]y", "grAy");
+        System.out.println(grey1);
     }
 }
