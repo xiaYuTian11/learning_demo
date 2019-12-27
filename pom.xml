@@ -11,6 +11,7 @@
     <modules>
         <module>concurrency_in_practice</module>
         <module>seckill</module>
+        <module>java8_action</module>
     </modules>
 
     <!--添加阿里云仓库-->
