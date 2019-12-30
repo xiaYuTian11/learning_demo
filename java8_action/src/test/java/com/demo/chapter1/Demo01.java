@@ -1,5 +1,6 @@
 package com.demo.chapter1;
 
+import cn.hutool.core.util.StrUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -44,4 +45,16 @@ public class Demo01 {
         System.out.println(c);
         System.out.println(list);
     }
+
+    @Test
+    public void test05() {
+        Predicate<String> p = Demo01::predicateTest;
+        boolean string = p.test("String1");
+        System.out.println(string);
+    }
+
+    private static boolean predicateTest(String str) {
+        return "String".equals(str);
+    }
+
 }
