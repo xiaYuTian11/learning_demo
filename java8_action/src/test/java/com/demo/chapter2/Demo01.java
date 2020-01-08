@@ -28,7 +28,13 @@ public class Demo01 {
 
     @Test
     public void test01() {
+        Integer[] numbers = new Integer[]{1, 2, 3, 4, 5};
+        Integer reduce = Arrays.stream(numbers).reduce(0, Integer::sum);
+        System.out.println(reduce);
 
+        Integer integer = Arrays.stream(numbers).reduce(Integer::max).get();
+        System.out.println(integer);
+        System.out.println(Arrays.stream(numbers).reduce(Integer::min).get());
 
     }
 
