@@ -4,9 +4,16 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author TMW
@@ -74,6 +81,34 @@ public class Demo02 {
         int asInt3 = transactions.stream().mapToInt(Transaction::getValue).min().getAsInt();
         System.out.println(asInt3);
 
+        List<double[]> collect4 = IntStream.rangeClosed(1, 100).boxed().flatMap(a -> IntStream.rangeClosed(a, 100).mapToObj(b -> new double[]{a, b, Math.sqrt(a * a + b * b)}))
+                .filter(t -> t[2] % 1 == 0).collect(Collectors.toList());
+        collect4.forEach(doubles -> {
+                    Arrays.stream(doubles).forEach(System.out::println);
+                }
+        );
+
+    }
+
+    @Test
+    public void test02() throws IOException {
+        Path path = Paths.get("D:\\java\\ideaWorkingSpace\\demo\\java8_action\\src\\test\\resources\\data.txt");
+        List<String> stringList = Files.lines(path, Charset.defaultCharset()).flatMap(line -> Arrays.stream(line.split(" "))).distinct().collect(Collectors.toList());
+        // System.out.println(stringList);
+        stringList.forEach(System.out::println);
+    }
+
+    @Test
+    public void test03() {
+        List<Integer> collect = Stream.iterate(0, n -> n + 2).limit(100).collect(Collectors.toList());
+        System.out.println(collect);
+    }
+
+    @Test
+    public void test04() {
+        List<Integer> collect = Stream.iterate(new int[]{0, 1}, t -> new int[]{t[1], t[0] + t[1]})
+                .limit(10).map(t -> t[0]).collect(Collectors.toList());
+        System.out.println(collect);
     }
 
 }
