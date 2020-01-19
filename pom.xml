@@ -12,6 +12,7 @@
         <module>concurrency_in_practice</module>
         <module>seckill</module>
         <module>java8_action</module>
+        <module>activemq_demo</module>
     </modules>
 
     <!--添加阿里云仓库-->
@@ -32,6 +33,7 @@
         <c3p0.version>0.9.1.2</c3p0.version>
         <druid.version>1.1.21</druid.version>
         <lombok.version>1.18.10</lombok.version>
+        <springboot.version>2.2.2.RELEASE</springboot.version>
     </properties>
 
 
@@ -78,8 +80,12 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>${springboot.version}</version>
+            <type>pom</type>
+        </dependency>
     </dependencies>
 
 </project>
