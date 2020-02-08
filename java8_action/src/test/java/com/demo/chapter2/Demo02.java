@@ -1,5 +1,6 @@
 package com.demo.chapter2;
 
+import cn.hutool.core.codec.Base64Decoder;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -111,4 +112,23 @@ public class Demo02 {
         System.out.println(collect);
     }
 
+    @Test
+    public void test05(){
+        Boolean aBoolean = Optional.ofNullable(null).map(str -> str.equals("1")).orElse(false);
+        System.out.println(aBoolean);
+        Boolean aBoolean1 = Optional.of(null).map(str -> str.equals("1")).orElse(false);
+        System.out.println(aBoolean1);
+    }
+
+    @Test
+    public void test06(){
+        String str = new String(Base64.getDecoder().decode("MTg2Mjk1NzM5MzcK"));
+        System.out.println(str);
+        String str2 =new String( Base64.getDecoder().decode("bWVAcm9sYW5kbGF1Lm5ldAo="));
+        System.out.println(str2);
+        System.out.println("--------------------------");
+        String str3 = Base64Decoder.decodeStr("MTg2Mjk1NzM5MzcK");
+        System.out.println(str3);
+        System.out.println(Base64Decoder.decodeStr("bWVAcm9sYW5kbGF1Lm5ldAo="));
+    }
 }
