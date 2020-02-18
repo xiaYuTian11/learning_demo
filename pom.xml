@@ -13,6 +13,10 @@
         <module>seckill</module>
         <module>java8_action</module>
         <module>activemq_demo</module>
+        <module>Shiro_demo</module>
+        <module>shiro_springboot</module>
+        <module>baidu_face_id</module>
+        <module>code_generator</module>
     </modules>
 
     <!--添加阿里云仓库-->
