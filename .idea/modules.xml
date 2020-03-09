@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Shiro_demo/Shiro_demo.iml" filepath="$PROJECT_DIR$/Shiro_demo/Shiro_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activemq_demo/activemq_demo.iml" filepath="$PROJECT_DIR$/activemq_demo/activemq_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baidu_face_id/baidu_face_id.iml" filepath="$PROJECT_DIR$/baidu_face_id/baidu_face_id.iml" />
+      <module fileurl="file://$PROJECT_DIR$/code_generator/code_generator.iml" filepath="$PROJECT_DIR$/code_generator/code_generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/concurrency_in_practice/concurrency_in_practice.iml" filepath="$PROJECT_DIR$/concurrency_in_practice/concurrency_in_practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/demo.iml" filepath="$PROJECT_DIR$/.idea/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hdfs_demo/hdfs_demo.iml" filepath="$PROJECT_DIR$/hdfs_demo/hdfs_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java8_action/java8_action.iml" filepath="$PROJECT_DIR$/java8_action/java8_action.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_demo/java_demo.iml" filepath="$PROJECT_DIR$/java_demo/java_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jfinal_demo/jfinal_demo.iml" filepath="$PROJECT_DIR$/jfinal_demo/jfinal_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sb_jooq/sb_jooq.iml" filepath="$PROJECT_DIR$/sb_jooq/sb_jooq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seckill/seckill.iml" filepath="$PROJECT_DIR$/seckill/seckill.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro_springboot/shiro_springboot.iml" filepath="$PROJECT_DIR$/shiro_springboot/shiro_springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot/springboot.iml" filepath="$PROJECT_DIR$/springboot/springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_demo/springboot_demo.iml" filepath="$PROJECT_DIR$/springboot_demo/springboot_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc/springmvc.iml" filepath="$PROJECT_DIR$/springmvc/springmvc.iml" />
+    </modules>
+  </component>
+</project>

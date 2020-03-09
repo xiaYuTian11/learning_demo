@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="concurrency_in_practice" />
+        <module name="springboot_demo" />
+        <module name="springmvc" />
+        <module name="seckill" />
+        <module name="shiro_springboot" />
+        <module name="Shiro_demo" />
+        <module name="baidu_face_id" />
+        <module name="activemq_demo" />
+        <module name="code_generator" />
+        <module name="springboot" />
+        <module name="sb_jooq" />
+        <module name="jfinal_demo" />
+        <module name="java8_action" />
+        <module name="hdfs_demo" />
+        <module name="java_demo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="activemq_demo" target="1.8" />
+      <module name="baidu_face_id" target="1.8" />
+      <module name="code_generator" target="1.8" />
+      <module name="concurrency_in_practice" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="hdfs_demo" target="1.8" />
+      <module name="java8_action" target="1.8" />
+      <module name="java_demo" target="1.8" />
+      <module name="jfinal_demo" target="11" />
+      <module name="sb_jooq" target="11" />
+      <module name="seckill" target="1.8" />
+      <module name="Shiro_demo" target="1.8" />
+      <module name="shiro_springboot" target="1.8" />
+      <module name="springboot" target="1.8" />
+      <module name="springboot_demo" target="1.8" />
+      <module name="springmvc" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Shiro_demo" options="" />
+      <module name="activemq_demo" options="" />
+      <module name="baidu_face_id" options="" />
+      <module name="code_generator" options="" />
+      <module name="concurrency_in_practice" options="" />
+      <module name="demo" options="" />
+      <module name="hdfs_demo" options="" />
+      <module name="java8_action" options="" />
+      <module name="java_demo" options="" />
+      <module name="jfinal_demo" options="-verbose -parameters" />
+      <module name="seckill" options="" />
+      <module name="shiro_springboot" options="" />
+      <module name="springmvc" options="" />
+    </option>
+  </component>
+</project>
