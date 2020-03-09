@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  dubbo:
+    application:
+      name: provider #dubbo应用名
+      registry:
+        address: zookeeper://127.0.0.1 #zookeeper地址
+        port: 2181 #zookeeper注册服务的端口
+    protocol:
+      name: dubbo
+      port: 20890 #dubbo服务端口
+    scan: com.example.springdubbodemo.dubbo_service #需要扫描dubbo @Service注解的包
