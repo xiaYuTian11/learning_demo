@@ -38,9 +38,13 @@ public class Produce {
 
             MessageProducer producer = session.createProducer(sessionTopic);
             for (int i = 0; i < 10; i++) {
-                producer.send(sessionTopic, session.createTextMessage("send..."));
+                String msg = "send..." + i;
+                System.out.println(msg);
+                producer.send(sessionTopic, session.createTextMessage(msg));
             }
 
+            session.close();
+            connection.close();
             // session.commit();
         } catch (JMSException e) {
             e.printStackTrace();
