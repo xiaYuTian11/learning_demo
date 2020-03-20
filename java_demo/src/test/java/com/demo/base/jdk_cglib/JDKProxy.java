@@ -1,9 +1,8 @@
-package tmw.jdk_cglib;
+package com.demo.base.jdk_cglib;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.util.Objects;
 
 /**
  * @author TMW
@@ -30,16 +29,15 @@ public class JDKProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         checkPopedom();
-        Object invoke = method.invoke(proxy, args);
+        Object invoke = method.invoke(targetObject, args);
         return invoke;
     }
-
 
     /**
      * 模拟检查权限的例子
      */
     private void checkPopedom() {
-        System.out.println("======检查权限checkPopedom()======");
+        System.out.println("======jdk  检查权限checkPopedom()======");
     }
 
 }

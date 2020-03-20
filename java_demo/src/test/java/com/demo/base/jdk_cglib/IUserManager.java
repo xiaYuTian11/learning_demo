@@ -1,4 +1,4 @@
-package tmw.jdk_cglib;
+package com.demo.base.jdk_cglib;
 
 /**
  * @author TMW

@@ -1,5 +1,8 @@
 package com.demo.base;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author TMW
  * @since 2020/3/16 9:50
@@ -15,6 +18,11 @@ public class Hello {
             Class<?> aClass1 = Class.forName("com.demo.base.Hello");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        }
+
+        List<Hello> list = new ArrayList<>();
+        while (true){
+            list.add(new Hello());
         }
     }
 }

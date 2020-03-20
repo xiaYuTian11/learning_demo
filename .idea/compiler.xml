@@ -38,6 +38,7 @@
       <module name="seckill" target="1.8" />
       <module name="Shiro_demo" target="1.8" />
       <module name="shiro_springboot" target="1.8" />
+      <module name="spring_demo" target="1.8" />
       <module name="springboot" target="1.8" />
       <module name="springboot_demo" target="1.8" />
       <module name="springmvc" target="1.8" />
@@ -58,6 +59,7 @@
       <module name="jfinal_demo" options="-verbose -parameters" />
       <module name="seckill" options="" />
       <module name="shiro_springboot" options="" />
+      <module name="spring_demo" options="" />
       <module name="springmvc" options="" />
     </option>
   </component>
