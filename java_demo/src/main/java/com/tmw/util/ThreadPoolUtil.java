@@ -9,6 +9,9 @@ import java.util.concurrent.*;
  * @since 2020/3/20 15:43
  */
 public class ThreadPoolUtil {
+
+    private static ThreadPoolExecutor ThreadPoolExecutor;
+
     /**
      * <p>
      * corepoolsize:在创建了线程池后，默认情况下，线程池中并没有任何线程，而是等待有任务到来才创建线程去执行任务，（
@@ -30,10 +33,33 @@ public class ThreadPoolUtil {
      *
      * @return
      */
-    public static Executor getThreadPool() {
-        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("线程 - %d").build();
+    public static ThreadPoolExecutor getThreadPool() {
+        if (ThreadPoolExecutor == null) {
+            ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("线程 - %d").build();
+            ThreadPoolExecutor = new ThreadPoolExecutor(5, 10, 0, TimeUnit.MILLISECONDS,
+                    new LinkedBlockingQueue<Runnable>(), threadFactory, new ThreadPoolExecutor.AbortPolicy());
+        }
+        return ThreadPoolExecutor;
+        // 使用完主要关闭线程池 shutdown();执行完任务在关闭  shutdownNow()；马上关闭
+    }
+
+    public static Executor getThreadPool(String threadName) {
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat(threadName + "线程 - %d").build();
         return new ThreadPoolExecutor(5, 10, 0, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>(), threadFactory, new ThreadPoolExecutor.AbortPolicy());
         // 使用完主要关闭线程池 shutdown();执行完任务在关闭  shutdownNow()；马上关闭
     }
+
+    public static void shutdown() {
+        ThreadPoolExecutor.shutdown();
+    }
+
+    public static void sleep(int second) {
+        try {
+            Thread.sleep(second * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
