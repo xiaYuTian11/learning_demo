@@ -1,0 +1,7 @@
+spring:
+  profiles:
+    active: @profile.active@
+# 指定依赖配置文件路径
+#  config:
+#    location: D:\java\ideaWorkingSpace\demo\sgg_springboot_learn\src\main\resources\application-prod.yml
+
