@@ -49,7 +49,10 @@ CACHE 1;
 ```sql
 alter table "PxClassFileUpload" alter column id set default nextval('PxClassFileUpload_id');
 ```
-
+## 重置序列
+```sql
+alter sequence pxhistorydata_id restart with 1;
+```
 
 ## 查询死锁
 ```sql
