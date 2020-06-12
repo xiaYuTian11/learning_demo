@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="myButton" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MyController">
+    <BorderPane>
+        <Label text="干部管理全息系统数据更新助手"></Label>
+
+<!--        <Button text="b1"></Button>-->
+<!--        <Button text="b2"></Button>-->
+    </BorderPane>
+
+    <children>
+        <Button fx:id="myButton" layoutX="150.0" layoutY="110.0" mnemonicParsing="false" text="showDateTime"
+                onAction="#showDateTime"/>
+        <TextField fx:id="myTextField" layoutX="88.0" layoutY="194.0" prefHeight="42.0" prefWidth="200.0"/>
+    </children>
+</AnchorPane>

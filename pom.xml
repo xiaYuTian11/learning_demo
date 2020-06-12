@@ -19,6 +19,7 @@
         <module>code_generator</module>
         <module>hdfs_demo</module>
         <module>springmvc</module>
+        <module>javaFx_demo</module>
     </modules>
 
     <!--添加阿里云仓库-->
