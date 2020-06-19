@@ -1,8 +1,5 @@
 package com.tmw.net.tcp;
 
-import sun.nio.ch.IOUtil;
-import sun.security.util.IOUtils;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
