@@ -26,13 +26,13 @@ public class Hello {
         }
 
         List<Hello> list = new ArrayList<>();
-        while (true){
+        while (true) {
             list.add(new Hello());
         }
     }
 
     @Test
-    public void test01(){
+    public void test01() {
         String one = "02";
         String two = null;
         String three = "13";
@@ -40,7 +40,7 @@ public class Hello {
         String join = String.join(",", one, two, three);
         System.out.println(join);
         List<String> stringList = Stream.of(one, two, three).filter(StrUtil::isNotBlank).collect(Collectors.toList());
-        join = String.join(",",stringList);
+        join = String.join(",", stringList);
         System.out.println(join);
         if (StrUtil.isBlank(one) && StrUtil.isBlank(two) && StrUtil.isBlank(three)) {
             // 群众
@@ -48,4 +48,32 @@ public class Hello {
         }
 
     }
+
+    @Test
+    public void test02() {
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+
+        list.addAll(list);
+        list.addAll(list);
+        list.addAll(list);
+        System.out.println(list);
+    }
+
+    public void stack(String[] arg) {
+        String str = "junshan";
+        if (str.equals("junshan")) {
+            int i = 3;
+            while (i > 0) {
+                long j = i;
+                i--;
+            }
+        } else {
+            char b = 'a';
+            System.out.println(b);
+        }
+
+    }
+
 }
