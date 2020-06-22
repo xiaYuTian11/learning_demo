@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 案管资金授权码生成
@@ -30,7 +31,8 @@ public class CpmAutoCode {
 
     public void getAutoCode(Set<String> set) {
         String numbers = RandomUtil.randomNumbers(6);
-        System.out.println(set.size() + 1 + ":" + numbers);
+        // System.out.println(set.size() + 1 + ":" + numbers);
+        System.out.println(Thread.currentThread().getName() + ":" + numbers);
         if (set.contains(numbers)) {
             getAutoCode(set);
         } else {
@@ -40,15 +42,16 @@ public class CpmAutoCode {
 
     @Test
     public void test02() {
+        ReentrantLock reentrantLock = new ReentrantLock();
+        CountDownLatch countDownLatch = new CountDownLatch(40);
 
-        CountDownLatch countDownLatch = new CountDownLatch(400);
         long startTime = System.currentTimeMillis();
         System.out.println("开始时间：" + startTime);
 
         ConcurrentSkipListSet<String> set = new ConcurrentSkipListSet<>();
 
         ThreadPoolExecutor threadPoolExecutor = ThreadUtil.newExecutor(5, 20);
-        for (int i = 0; i < 400; i++) {
+        for (int i = 0; i < 40; i++) {
             threadPoolExecutor.execute(() -> {
                 try {
                     countDownLatch.await();
@@ -60,10 +63,17 @@ public class CpmAutoCode {
                 }
 
             });
+            countDownLatch.countDown();
         }
-        countDownLatch.countDown();
 
-        ThreadUtil.sleep(1000 * 60);
+        try {
+            reentrantLock.lock();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            reentrantLock.unlock();
+        }
+
 
         long endTime = System.currentTimeMillis();
         System.out.println("结束时间：" + endTime);
