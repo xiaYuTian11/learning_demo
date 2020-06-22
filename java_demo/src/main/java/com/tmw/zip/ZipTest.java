@@ -1,4 +1,4 @@
-package com.tmw;
+package com.tmw.zip;
 
 import cn.hutool.core.io.FileUtil;
 import com.tmw.util.ZipUtil;
