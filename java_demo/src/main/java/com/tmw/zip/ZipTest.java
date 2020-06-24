@@ -1,4 +1,4 @@
-package com.tmw;
+package com.tmw.zip;
 
 import cn.hutool.core.io.FileUtil;
 import com.tmw.util.ZipUtil;
@@ -45,7 +45,7 @@ public class ZipTest {
     public void test01() {
         File file = new File("C:\\Users\\Administrator\\Desktop\\测试\\orgData");
         File zipFile = new File("C:\\Users\\Administrator\\Desktop\\测试\\测试\\orgData.zip");
-        org.zeroturnaround.zip.ZipUtil.pack(file, zipFile, 5);
+        // org.zeroturnaround.zip.ZipUtil.pack(file, zipFile, 5);
 
         // org.zeroturnaround.zip.ZipUtil.pack
 
@@ -53,8 +53,8 @@ public class ZipTest {
 
     @Test
     public void test02() {
-        File file = new File("C:\\Users\\Administrator\\Desktop\\测试\\测试\\orgData.zip");
-        File zipFile = new File("C:\\Users\\Administrator\\Desktop\\测试\\测试\\orgDataPassword.zip");
+        File file = new File("C:\\Users\\tmw\\Desktop\\orgData.zip");
+        File zipFile = new File("C:\\Users\\tmw\\Desktop\\orgDataPassword.zip");
         File file1 = ZipUtil.zipFilePwd(zipFile, file);
         System.out.println(file1.getPath().toString());
 
