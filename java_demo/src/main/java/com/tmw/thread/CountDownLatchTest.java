@@ -72,8 +72,8 @@ public class CountDownLatchTest {
         // ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(new ThreadPoolExecutor(10, 24, 60, TimeUnit.SECONDS,
         //         new LinkedBlockingQueue<>(), new ThreadFactoryBuilder().setThreadFactory(Thread::new).setNameFormat("thread-%d:").build()));
         ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(new ThreadPoolExecutor(10, 24, 60, TimeUnit.SECONDS,
-                new SynchronousQueue<>(), new ThreadFactoryBuilder().setThreadFactory(Thread::new).setNameFormat("thread-%d:").build()));
-        for (int i = 0; i < 12; i++) {
+                new SynchronousQueue<>(), new ThreadFactoryBuilder().setThreadFactory(Thread::new).setNameFormat("thread-%d:").build(), new ThreadPoolExecutor.DiscardPolicy()));
+        for (int i = 0; i < 25; i++) {
             listeningExecutorService.execute(() -> {
                 try {
                     System.out.println("子线程" + Thread.currentThread().getName() + "正在准备");
@@ -124,9 +124,9 @@ public class CountDownLatchTest {
     }
 
     @Test
-    public void test05() {
+    public synchronized void test05() {
         Semaphore semaphore = new Semaphore(8);
-
+        System.out.println("hello");
     }
 
 }
