@@ -79,7 +79,7 @@ public class ZipUtil {
                 if (file.isFile()) {
                     // 文件
                     zip.addFile(file, parameters);
-                } else {
+                } else   {
                     zip.addFolder(file, parameters);
                 }
             }
