@@ -12,7 +12,7 @@ import java.util.Base64;
  * @author TMW
  * @date 2020/6/23 10:22
  */
-public class RSAUtil {
+public class RSAUtilHutool {
 
     /**
      * 私钥
@@ -43,34 +43,26 @@ public class RSAUtil {
             "C1HzTpiaU6EKRGuUaCL2fRLjJl//ufVMwLlgCc+8+RDXxHZiVn/aQ6SHARP0TDHR\n" +
             "Yzl6k8A5iRUqoITGc02+c8+R5i6HOlJ33I+eP8LkC8nTK3vf/Wyx8z15I6IKZggF\n" +
             "0IAWwzQLwFGgIrFxm0fPCuFC";
+    // private final static String PRIVATEKEY = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQClubxrHxMkiUAVI6ydLk89VsvFu71AnzdJ986ZLJRQLmhcfIuMeHaHlFhSLGiLGcft0NAauRocoGndGZrkko8lVFO1cuOrpC9WytuEK0/wjDE43t6wYcQyavNKExBVTHY3CGf9NC8UoSVzim99aYLO5LmWaCbIWKfJ3iIxC6d8U+0N9DPQ+NPMlimk+TBzwBogI1cVIHK0hvvnFTUFEhFCLKUA56uR8tP+Mq0tXW2xFlRrK262qYWbuEGjIoZFgeCVwAPWim40xYIxqj9qAKy74SaTBqHv+Dj09hgY+3hP4GmqkNR4p5GfYM02cmtTj1D1kHRri4Emu0ovzor2t9kfAgMBAAECggEBAJzQdI60V8vBp4aZPBN7J3W2NJlE/V4xigKO3son2atJTmz9WJqxvg6qeyw+YyoEWh8Y8GHo9uFRlPqm6N8SIytCcPcH4JCgij7JMxAMX9cRAN58XSFvUVQXyWA1S8Y61L1cUfHQuCAAH80FmFuGREV7PnUo1lHLOfGVJKteCLxls+EAPplOaTysf+m3N4JVL3faLYFrDIY3NWvzPUqi4VWNzrTsU9vNsZ+7YqJlsZLCDyoVsLWrdGUf+uuBzmaQKNYQwLLPEVkhdVnxEnrIn2lDXoGpqIzYgn3wNa9xigS8L3bS52z0cDeUjq/k0DJ3dDLiobZyUyDwdG43hK1Wp7kCgYEAzz2ILkYk4H9OlVR+hgbfPGlacNE8eBXoTLTeJMmcIcCid8auvfRR7yqYE0DcZtV3qaVUOXHtIfYA5Mwxjvlmg17eL6ncEHdHpeZ3Fd4l3Fb4oV6wqHvjwJH7NnglFF9o+7xrKvdU7qrBUCCJPk/zHH/SwTnHpv6sNngZD4K78d0CgYEAzLewidoVpd6Xl9r+wPVtULypHYBxv6wkBYHYPhezqPhp8m5aTAwIths6QbB2bP/PDsoY7vftMkBdNRqfqpDG0U9Usi5O/yJaEC3UkEjaqzMqLxQPp4P4EjqrcMLxhd4ahSOG5E2gVx79xlvSyuP7SlVsG8Gjxy+8INR8kEJ2DSsCgYEAv9GAXvRl5bVwEyAmDAAIWG5bW9kPU0dTwMwYYYyKi2M1/g9UZlXiELEoGYoLdtNW8xsoHhOpHaoJobyuklud2zLQDOX33vXIx3HN/9uix5NohlSSxyAE6pU0JHKIP5cgIQGBYD+VyWMbkwLKhXaS22oktNy6Q4Ot+qym5YhoVbECgYB3Szt2uT0QMUwJU7ZMXzhaafXqmSSv2vIKu4V1eX5aIpgqi5/W3NReujMSgHAiSFcyeRZaeuMf+13VSjRswnz5D899HXsvNadh8jMB+VJjnSch1ADjTwXKKaIpzY/MwIaXuwIqHAopeofLhUqqrHuM74ZWDlsQAYMRZoFH11LPjQKBgCeclVNeH82jOYR6A9AJjp85gclInO1Y4LBwzw4b80BYr1MS1CRPOdLwe1biPzOsn7PfNa1vHvcMfVu51GH+KY2SwpxPL74/ntBThiqpBFte9Ye7TtSDUEjHRlyxOBWXZSAmpFr0FUjhKAqGMmxwl9KIDdjgr2RndDHxA0RESx82";
     /**
      * 公钥
      */
-    // private final static String PUBLICKEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyi1NK4NnbYgL17c5U7HC\n" +
-    //         "sF9gf741+xPyyD84SYuw2TYbpdOBNfiYRXFyUlwnHMDR+w2dQ+l94mjJHwsPl1BU\n" +
-    //         "3Z3d/P7JoU4tSi8fjk21kXnxJHuvoQk8bi/o/tN6E0zERiA3vqOBncOhegXQjf6g\n" +
-    //         "wTszD991BtFj4srSY95J1myyrPDH19HkNVKCJvyA0wIgrdpq/1ujbkdBbun7X3Jr\n" +
-    //         "S5GN94Agn6wQp5HX5DBrtindyARl778zNXGVsYcsvVGJySAqPImtqKINYU+g4tNu\n" +
-    //         "UqP2yr49qBD9nL+7i81sa++HTndxSF7Eyme4JaLD53ofuxhSGc14Ob8Dp/GWJ46U\n" +
-    //         "3wIDAQAB";
+    // private final static String PUBLICKEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwSuf1LuxJIfgYLaJehMj\n" +
+    //         "Z03eD5X4fqVxTWxTD4b6LKA09/VkIL/UH05wpVCynYUhGVliW4ivSipA/UJ+XJVv\n" +
+    //         "5SPZYx6YApwH7f9t5H11VnWmJm4CQloTRXpJ3afzYYEdZ5yMpuRspuRPy8q223bc\n" +
+    //         "nZuvkXiZKoX3uJ2pG57GDMHRJCGwEfL0Qe/MktNPBAqdKeNC8smK19sGI2IuwnKD\n" +
+    //         "32r5aEPs15JHuj7R0fgKL5rz5LdkDFUdfXOwCWRL5Jy5BpYiiPalKPgs/Vl5o302\n" +
+    //         "3P81mRsM3eeuI88nMksAbqSJUYxBhSK4jMEtZ2hVYo54/KC/vhdyRdQnm8uEr2L2\n" +
+    //         "pQIDAQAB";
+    /**
+     * 工行公钥
+     */
     private final static String PUBLICKEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAihTj8ksHMQmyrwUVTR213j3iyoL3HJ1X48laOKZNSThyC+6crGupyNXeuz1RuNCZZ1NWiWXOLZKKPFnzyx1swgUQho5wkrA5QqN0fT0GBt35L59OZXHbfdY7coDJCce1rhhZzEML1KDIF7MxO+yA0FiOLj93iRrXj37jICLLLNS1p0XPTF2FJKHrEgABFmyBpbPODT109Tx5U5eGrwUk/1I+WKT6w2VTpMkXEm0794OgbE9j/SqTqWvxKjc19rh949qOxApPPmscmFM1uIdvB1K5fOAsE5hR9Noqwmobq6lJWK4tT2O1NA8J/T74htBspRat1dp5XlRb5IMKejVHDwIDAQAB";
 
     /**
      * 加解密对象
      */
-
     private final static RSA RSA = new RSA(PRIVATEKEY, PUBLICKEY);
-
-    // private static final RSA RSA;
-    // static {
-    //     File pubFile = new File(RSAUtil.class.getResource("/public_key.txt").getPath());
-    //     String publicKey = FileUtil.readString(pubFile, StandardCharsets.UTF_8);
-    //     System.out.println("publicKey:" + publicKey);
-    //     File priFile = new File(RSAUtil.class.getResource("/private_key.txt").getPath());
-    //     String privateKey = FileUtil.readString(priFile, StandardCharsets.UTF_8);
-    //     System.out.println("privateKey:" + privateKey);
-    //     RSA = new RSA(privateKey, publicKey);
-    // }
 
     /**
      * 加密 返回字节,指定编码
@@ -78,10 +70,8 @@ public class RSAUtil {
      * @return
      */
     public static String encrypt(String message) {
-        return Base64.getEncoder().encodeToString(RSA.encrypt(message, StandardCharsets.UTF_8, KeyType.PublicKey));
-        // String s = RSA.encryptBcd(message, KeyType.PublicKey, StandardCharsets.UTF_8);
-        // String s2 = Base64.getEncoder().encodeToString(s.getBytes(StandardCharsets.UTF_8));
-        // return s2;
+        String encryptBcd = RSA.encryptBcd(message, KeyType.PublicKey, StandardCharsets.UTF_8);
+        return Base64.getEncoder().encodeToString(encryptBcd.getBytes(StandardCharsets.UTF_8));
     }
 
     /**
@@ -90,13 +80,7 @@ public class RSAUtil {
      * @return
      */
     public static String decrypt(String data) {
-        // return new String(RSA.decrypt(Base64.getDecoder().decode(data.getBytes(StandardCharsets.UTF_8)), KeyType.PrivateKey));
-        // String s3 = new String(Base64.getDecoder().decode(data), StandardCharsets.UTF_8);
-        // String s1 = RSA.decryptFromBcdToStr(s3, KeyType.PrivateKey, StandardCharsets.UTF_8);
-        // return s1;
-        // Base64.getDecoder()  和 Base64.getMimeDecoder() 编码不一致
-        byte[] decrypt = RSA.decrypt(Base64.getMimeDecoder().decode(data), KeyType.PrivateKey);
-        return new String(decrypt, StandardCharsets.UTF_8);
+        return new String(RSA.decrypt(Base64.getDecoder().decode(data.getBytes(StandardCharsets.UTF_8)), KeyType.PrivateKey));
     }
 
 }
