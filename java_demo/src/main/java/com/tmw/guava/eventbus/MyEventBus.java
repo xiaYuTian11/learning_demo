@@ -22,6 +22,5 @@ public class MyEventBus {
         eventBus.post(new TextEventBus("400"));
 
         System.out.println("LastMessage:" + listener.getLastMessage());
-        ;
     }
 }
