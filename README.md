@@ -65,6 +65,26 @@ SELECT pg_cancel_backend(3783);
 select oid,relname from pg_class where relname='mem_info';
 select * from pg_locks where relation= '16439';
 select pg_cancel_backend('3584');
+
+
+查询是否锁表了
+	select oid from pg_class where relname=tablename
+	select pid from pg_locks where relation=oid
+如果查询到了结果，表示该表被锁 则需要释放锁定
+	select pg_cancel_backend(oid)
+
+
+检索出死锁进程的ID
+   SELECT * FROM pg_stat_activity where wait_event_type = 'Lock';
+如果查询到了pid，表示有死锁进程，则需要杀掉解锁进程
+   select pg_terminate_backend('pid')
+
+9.6 版本之后 pg_stat_activity视图的 waiting字段被 wait_event_type和 wait_event字段取代
+如果 pg_stat_activity 没有记录，可以查询 pg_locks 这个表中是否有锁定的记录。
+pg_terminate_backend() 也可以用 pg_cancle_backend() 代替。
+
+
+http://www.cnblogs.com/yuluo/p/5695434.html
 ```
 
 
