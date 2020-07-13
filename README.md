@@ -72,7 +72,7 @@ select pg_cancel_backend('3584');
 	select pid from pg_locks where relation=oid
 如果查询到了结果，表示该表被锁 则需要释放锁定
 	select pg_cancel_backend(oid)
-
+    select pg_terminate_backend('pid')  -- 组合解决了sysUser 死锁问题
 
 检索出死锁进程的ID
    SELECT * FROM pg_stat_activity where wait_event_type = 'Lock';
