@@ -1,3 +1,0 @@
-2020-07-21 11:17:30.643 [INFO ] com.example.demo.DemoApplication - Starting DemoApplication on PC-20190301HKNA with PID 14016 (D:\java\ideaWorkingSpace\tmw\learning_demo\springboot_demo\target\classes started by Administrator in D:\java\ideaWorkingSpace\tmw\learning_demo)
-2020-07-21 11:17:30.676 [INFO ] com.example.demo.DemoApplication - The following profiles are active: tmw,dev
-2020-07-21 11:17:32.303 [INFO ] com.example.demo.DemoApplication - Started DemoApplication in 2.128 seconds (JVM running for 2.824)

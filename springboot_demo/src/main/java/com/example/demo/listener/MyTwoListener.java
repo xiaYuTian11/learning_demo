@@ -1,5 +1,6 @@
 package com.example.demo.listener;
 
+import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 
@@ -10,6 +11,9 @@ import org.springframework.context.ApplicationListener;
 public class MyTwoListener implements ApplicationListener {
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        System.out.println("run MyTwoListener ...");
+        if(event instanceof ApplicationStartingEvent){
+            System.out.println("run MyTwoListener ...");
+        }
+
     }
 }

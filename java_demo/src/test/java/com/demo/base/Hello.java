@@ -4,7 +4,9 @@ import cn.hutool.core.util.StrUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,23 +15,23 @@ import java.util.stream.Stream;
  * @since 2020/3/16 9:50
  */
 public class Hello {
-    public static void main(String[] args) {
-        System.out.println("hello world!");
-        // 反射创建对象的三种方式
-        Hello hello = new Hello();
-        Class<? extends Hello> aClass = hello.getClass();
-        Class<Hello> helloClass = Hello.class;
-        try {
-            Class<?> aClass1 = Class.forName("com.demo.base.Hello");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        List<Hello> list = new ArrayList<>();
-        while (true) {
-            list.add(new Hello());
-        }
-    }
+    // public static void main(String[] args) {
+    //     System.out.println("hello world!");
+    //     // 反射创建对象的三种方式
+    //     Hello hello = new Hello();
+    //     Class<? extends Hello> aClass = hello.getClass();
+    //     Class<Hello> helloClass = Hello.class;
+    //     try {
+    //         Class<?> aClass1 = Class.forName("com.demo.base.Hello");
+    //     } catch (ClassNotFoundException e) {
+    //         e.printStackTrace();
+    //     }
+    //
+    //     List<Hello> list = new ArrayList<>();
+    //     while (true) {
+    //         list.add(new Hello());
+    //     }
+    // }
 
     @Test
     public void test01() {
@@ -74,6 +76,29 @@ public class Hello {
             System.out.println(b);
         }
 
+    }
+
+    public static void main(String[] args) {
+        List<String> userNames = new CopyOnWriteArrayList<String>() {{
+            add("Hollis");
+            add("hollis");
+            add("HollisChuang");
+            add("H");
+        }};
+
+        Iterator it = userNames.iterator();
+
+        for (String userName : userNames) {
+            if (userName.equals("Hollis")) {
+                userNames.remove(userName);
+            }
+        }
+
+        System.out.println(userNames);
+
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
     }
 
 }
