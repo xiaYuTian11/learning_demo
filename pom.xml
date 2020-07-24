@@ -20,6 +20,8 @@
         <module>hdfs_demo</module>
         <module>springmvc</module>
         <module>javaFx_demo</module>
+        <module>netty_demo</module>
+        <module>webmagic</module>
     </modules>
 
     <!--添加阿里云仓库-->

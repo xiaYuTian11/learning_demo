@@ -1,6 +1,6 @@
 package com.tmw.config;
 
-import com.tmw.handler.ServerInitializer;
+import com.tmw.server.handler.ServerInitializer;
 import com.tmw.netty.ChannelRepository;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelOption;
