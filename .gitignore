@@ -4,10 +4,10 @@
 /seckill/target/
 /java8_action/target/
 /logs/
-/hdfs_demo/target/classes/
-/javaFx_demo/target/classes/img/
-/netty_demo/target/classes/com/tmw/
-/Shiro_demo/target/classes/
-/shiro_springboot/target/classes/com/demo/shiro/
-/springmvc/target/classes/com/demo/
-/webmagic/target/classes/
+/hdfs_demo/target/
+/javaFx_demo/target/
+/netty_demo/target/
+/Shiro_demo/target/
+/shiro_springboot/target/
+/springmvc/target/
+/webmagic/target/
