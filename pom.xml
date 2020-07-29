@@ -22,6 +22,7 @@
         <module>javaFx_demo</module>
         <module>netty_demo</module>
         <module>webmagic</module>
+        <module>my_aop</module>
     </modules>
 
     <!--添加阿里云仓库-->
