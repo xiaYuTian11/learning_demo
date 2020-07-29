@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.List;
 
 /**
@@ -39,11 +40,11 @@ public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {
     @Override
     public Object getProxy(ClassLoader classLoader) {
         System.out.println("为" + target + "创建代理。");
-        return null;
+        return Proxy.newProxyInstance(classLoader,target.getClass().getInterfaces(), this);
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return null;
+        return AopProxyUtils.applyAdvices(target, method, args, matchAdvisors, proxy, beanFactory);
     }
 }
