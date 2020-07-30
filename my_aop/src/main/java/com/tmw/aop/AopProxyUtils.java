@@ -36,9 +36,10 @@ public class AopProxyUtils {
             return method.invoke(target, args);
         } else {
             // 有Advice就责任链式执行增强
-            AopAdviceChainInvocation chain = new AopAdviceChainInvocation(proxy, target, method, args, advices);
-            return chain.invoke();
+            // AopAdviceChainInvocation chain = new AopAdviceChainInvocation(proxy, target, method, args, advices);
+            // return chain.invoke();
         }
+        return null;
     }
 
     /**
