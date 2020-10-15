@@ -1,0 +1,19 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    url: jdbc:mysql://47.110.133.228:3306/demo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 12
+      idle-timeout: 10000
+      max-lifetime: 180000
+      connection-timeout: 60000  # \u90FD\u662F\u6BEB\u79D2\uFF0C\u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4\u4E3A60\u6BEB\u79D2
+      connection-test-query: select 1
+
+mybatis:
+  mapper-locations: classpath*:/mapper/WorkerNodeMapper.xml
+  type-aliases-package: com.baidu.fsg.uid.worker.entity
