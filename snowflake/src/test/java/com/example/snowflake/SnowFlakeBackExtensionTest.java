@@ -2,14 +2,13 @@ package com.example.snowflake;
 
 import cn.hutool.core.collection.ConcurrentHashSet;
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.MockRepository;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.util.Date;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;
@@ -34,7 +33,7 @@ public class SnowFlakeBackExtensionTest {
         LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(1));
         PowerMockito.mockStatic(System.class);
         PowerMockito.when(System.currentTimeMillis()).thenReturn(beginTime);
-        Assert.assertEquals(System.currentTimeMillis(), beginTime);
+        Assertions.assertThat(System.currentTimeMillis()).isEqualTo(beginTime);
 
         for (int i = 0; i < size; i++) {
             if (i >= 3) {
@@ -44,13 +43,15 @@ public class SnowFlakeBackExtensionTest {
                     Assertions.assertThat(e.getMessage()).isEqualTo("Clock moved backwards.  Refusing to generate id");
                 }
             } else {
-                extension.nextId();
+                set.add(extension.nextId());
             }
         }
 
-        PowerMockito.when(System.currentTimeMillis()).thenReturn(new Date().getTime());
-        for (int i = 0; i < size; i++) {
-            Assertions.assertThat(extension.nextId()).isInstanceOf(Long.class);
+        MockRepository.remove(System.class);
+        for (int i = 0; i < size * 120; i++) {
+            set.add(extension.nextId());
         }
+        System.out.println(set.size());
+        Assertions.assertThat(set.size()).isEqualTo(size * 121 + 3);
     }
 }

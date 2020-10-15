@@ -133,30 +133,22 @@ public class SnowFlakeBackExtension {
                 currStamp = getNewStamp();
                 // 如果仍然小于上次时间戳，可以直接抛异常或者采用扩展字段 extension
                 if (currStamp < lastStamp) {
-                    backwardCount++;
-                    if (backwardCount > MAX_BACKWARD_COUNT) {
+                    if (backwardCount < MAX_BACKWARD_COUNT) {
+                        backwardCount++;
+                        return bitOption(currStamp);
+                    } else {
                         // 三次回拨后直接抛出异常，后续进行人为干预，处理好服务器时间
                         throw new RuntimeException("Clock moved backwards.  Refusing to generate id");
                     }
-                    // 时间戳 | 数据中心 | 机器码 | 序列号 | 时钟回拨次数
-                    return (currStamp - START_TIMESTAMP) << TIMESTAMP_LEFT
-                            | datacenterId << DATACENTER_LEFT
-                            | machineId << MACHINE_LEFT
-                            | sequence << SEQUENCE_LEFT
-                            | backwardCount;
                 }
             } else {
-                backwardCount++;
-                if (backwardCount > MAX_BACKWARD_COUNT) {
+                if (backwardCount < MAX_BACKWARD_COUNT) {
+                    backwardCount++;
+                    return bitOption(currStamp);
+                } else {
                     // 三次回拨后直接抛出异常，后续进行人为干预，处理好服务器时间
                     throw new RuntimeException("Clock moved backwards.  Refusing to generate id");
                 }
-                // 时间戳 | 数据中心 | 机器码 | 序列号 | 时钟回拨次数
-                return (currStamp - START_TIMESTAMP) << TIMESTAMP_LEFT
-                        | datacenterId << DATACENTER_LEFT
-                        | machineId << MACHINE_LEFT
-                        | sequence << SEQUENCE_LEFT
-                        | backwardCount;
             }
         }
         // 同一毫秒内
@@ -172,6 +164,16 @@ public class SnowFlakeBackExtension {
             sequence = 0L;
         }
         lastStamp = currStamp;
+        return bitOption(currStamp);
+    }
+
+    /**
+     * 位运算拼接
+     *
+     * @param currStamp
+     * @return
+     */
+    private long bitOption(long currStamp) {
         // 时间戳 | 数据中心 | 机器码 | 序列号 | 时钟回拨次数
         return (currStamp - START_TIMESTAMP) << TIMESTAMP_LEFT
                 | datacenterId << DATACENTER_LEFT
