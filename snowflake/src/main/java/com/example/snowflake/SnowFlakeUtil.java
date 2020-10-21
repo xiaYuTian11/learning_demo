@@ -73,11 +73,11 @@ public class SnowFlakeUtil {
     /**
      * 数据中心
      */
-    private long datacenterId;
+    private final long datacenterId;
     /**
      * 机器标识
      */
-    private long machineId;
+    private final long machineId;
 
     public SnowFlakeUtil(long machineId, long datacenterId) {
         if (machineId > MAX_MACHINE_NUM || machineId < 0) {
