@@ -15,7 +15,7 @@ class UidGeneratorApplicationTests {
 
     @Test
     public void contextLoads() {
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println(uidGenerator.getUID());
         }
     }

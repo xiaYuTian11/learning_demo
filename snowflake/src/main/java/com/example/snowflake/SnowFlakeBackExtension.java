@@ -81,7 +81,7 @@ public class SnowFlakeBackExtension {
     /**
      * 最大次数
      */
-    private final static long MAX_BACKWARD_COUNT = 3;
+    private final static long MAX_BACKWARD_COUNT = ~(-1L << BACK_EXTENSION_BIT);
     /**
      * 序列号
      */

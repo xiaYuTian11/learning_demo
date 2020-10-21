@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @ComponentScan({"com.baidu.fsg","com.example.uidgenerator"})
 @MapperScan("com.example.uidgenerator")
-@EnableTransactionManagement(proxyTargetClass = true)
 public class UidGeneratorApplication {
 
 	public static void main(String[] args) {

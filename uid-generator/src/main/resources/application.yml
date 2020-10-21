@@ -16,4 +16,4 @@ spring:
 
 mybatis:
   mapper-locations: classpath*:/mapper/WorkerNodeMapper.xml
-  type-aliases-package: com.baidu.fsg.uid.worker.entity
+#  type-aliases-package: com.baidu.fsg.uid.worker.entity
