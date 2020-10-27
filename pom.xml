@@ -23,6 +23,7 @@
         <module>netty_demo</module>
         <module>webmagic</module>
         <module>my_aop</module>
+        <module>kafka-demo</module>
     </modules>
 
     <!--添加阿里云仓库-->
