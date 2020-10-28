@@ -28,6 +28,10 @@ public class ProducerDemo {
         prop.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 32 * 1024 * 1024);
         prop.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         prop.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        prop.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "gzip");
+
+        // 自定义拦截器
+        prop.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, ProducerInterceptorDemo.class.getName());
         return new KafkaProducer<>(prop);
     }
 
