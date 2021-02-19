@@ -24,6 +24,7 @@
         <module>webmagic</module>
         <module>my_aop</module>
         <module>kafka-demo</module>
+        <module>mybatis-demo</module>
     </modules>
 
     <!--添加阿里云仓库-->
