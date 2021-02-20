@@ -13,9 +13,10 @@
     </properties>
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <!--        <setting name="localCacheScope" value="STATEMENT"/>-->
+<!--                <setting name="localCacheScope" value="STATEMENT"/>-->
         <!-- 默认就是session范围 -->
-        <setting name="localCacheScope" value="SESSION"/>
+<!--        <setting name="localCacheScope" value="SESSION"/>-->
+        <setting name="cacheEnabled" value="true"/>
     </settings>
     <!-- 环境，可以配置多个，default：指定采用哪个环境 -->
     <environments default="development">

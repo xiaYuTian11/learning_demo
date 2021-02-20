@@ -1,10 +1,14 @@
 package top.tanmw.mybatis.entity;
 
+import java.io.Serializable;
+
 /**
  * @author TMW
  * @date 2021/2/18 10:40
  */
-public class Jobs {
+public class Jobs implements Serializable {
+    private static final long serialVersionUID = 1951884924987284915L;
+
     private String jobId;
     private String jobTitle;
     private String minSalary;
