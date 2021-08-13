@@ -26,7 +26,7 @@
     </repositories>
 
     <properties>
-        <jfinal.version>4.5</jfinal.version>
+        <jfinal.version>4.9.11</jfinal.version>
         <jfinal-undertow>1.9</jfinal-undertow>
     </properties>
 
